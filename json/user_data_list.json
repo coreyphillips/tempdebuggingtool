@@ -1,0 +1,24 @@
+﻿{
+    "data": [
+        {
+            "id": "MnemonicWords",
+            "description": "Mnemonic words are used for login your OBD."
+        },
+        {
+            "id": "MyAddresses",
+            "description": "Addresses created with mnemonic."
+        },
+        {
+            "id": "Counterparties",
+            "description": "List of counterparties who have interacted."
+        },
+        {
+            "id": "ChannelList",
+            "description": "List of channel creation process records."
+        },
+        {
+            "id": "OmniFaucet",
+            "description": "Omni Faucet provide omni test assets to use."
+        }
+    ]
+}

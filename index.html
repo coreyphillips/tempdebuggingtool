@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBD Debugging Tool</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tooltip.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/input_style.css">
+    <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+    <script src="sdk/pojo.js"></script>
+    <script src="sdk/obdapi.js"></script>
+    <script src="sdk/content_tips.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/qrcode.min.js"></script>
+    <script src="sdk/btctool.js"></script>
+    <script src="sdk/wallet.js"></script>
+    <script src="sdk/htlc.js"></script>
+    <script src="sdk/basic.js"></script>
+    <script src="sdk/util.js"></script>
+    <script src="sdk/contracts.js"></script>
+    <script src="sdk/query.js"></script>
+    <script src="sdk/manage_asset.js"></script>
+    <script src="sdk/auto_pilot.js"></script>
+    <script src="sdk/number_precision.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <!-- Header -->
+        <div class="header">
+            <!-- Top area -->
+            <div class="top">
+                <div class="topLeft">OBD Debug Tool</div>
+                <div class="topRight">
+                    <div class="topData">
+                        <div class="topDataKey">Status:</div>
+                        <div class="wrapper"><label id="status">Not Connected</label>
+                            <div class="tooltip"><label id="status_tooltip">Not Connected</label></div>
+                        </div>
+                        <div class="topDataKey">Logged In:</div>
+                        <div class="topDataVal" id="logined">No One</div>
+                    </div>
+                    <div class="topData">
+                        <div class="wrapper" onmouseover="showWrapper()"><label>Channel List</label>
+                            <div id="div_top" class="channel_list">
+                                <div id="div_channels">You need to login.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Operation tooltip area -->
+            <div id= "tooltip_area" class="tooltip_area">
+                <div class="topDataKey">In Channel:</div>
+                <div class="topDataVal" id="curr_channel_id">Not Logged in</div>
+                <div class="topDataKey">Next Step:</div>
+                <div class="topDataVal" id="next_step"></div>
+                <div class="" id="button_next"></div>
+            </div>
+        </div>
+
+        <!-- Content in middle of page -->
+        <div class="main">
+            <!-- Left Side Menu -->
+            <div id="menu" class="leftSide">
+
+                <!-- Auto Mode -->
+                <div class="parent_div">
+                    <div class="wrapper">
+                        <!-- <i class="fa_pos fa fa-info-circle"></i> -->
+                        <img class="auto_pilot_help" src="doc/tooltip/help.png">
+                        <div class="info_icon"><label>Auto response to some request like 
+                            openChannel, bitcoinFundingCreated, assetFundingCreated, 
+                            commitmentTransactionCreated, addHTLC, forwardR, closeHTLC.</label></div>
+                    </div>
+                    <div class="auto_mode">
+                        <label for="auto_mode">Auto Pilot</label>
+                        <input id="auto_mode" type="checkbox" class="switch" onclick="autoMode(this)">
+                    </div>
+                </div>
+
+                <div class="menuTitle">Start</div>
+                <a href="#" class="url" onclick="displayConnectOBD()">Connect to OBD node</a>
+                
+                <div class="menuTitle">Custom Mode</div>
+                <a href="#" class="url" onclick="displayCustomMode()">Debugging APIs</a>
+
+                <!-- USER DATA LIST - Dynamic create -->
+                <div class="menuTitle">User Data</div>
+                <div id="user_data_list"></div>
+
+                <!-- APIs for Debugging - Dynamic create -->
+                <div class="menuTitle">APIs for Debugging</div>
+                <div id="api_list"></div>
+
+                <!-- APIs for Util - Dynamic create -->
+                <div class="menuTitle">Query</div>
+                <div id="util_list"></div>
+
+                <!-- Manage Assets - Dynamic create -->
+                <div class="menuTitle">Manage Assets</div>
+                <div id="manage_assets_list"></div>
+
+                <div class="menuTitle">Tracker Data</div>
+                <div class="bottom_margin"><a href="#" class="url" onclick="getTrackerData('getObdNodes', 1, 10)">Nodes</a></div>
+                <div class="bottom_margin"><a href="#" class="url" onclick="getTrackerData('getUsers', 1, 10)">Users</a></div>
+                <div class="bottom_margin"><a href="#" class="url" onclick="getTrackerData('getChannels', 1, 10)">Channels</a></div>
+
+            </div>
+
+            <!-- API invoked area, click left side menu to display. -->
+            <div id="content" class="request_div">
+                <!-- Dynamic create in 'common.js' -->
+                <div id="name_req_div"></div>
+            </div>
+
+            <!-- OBD messages display area -->
+            <div class="obd_messages_div">
+                <button class="button button_clear" onclick="clearOBDMsg()">Clear</button>
+                <button class="button button_clear button_log" onclick="openLogPage()">Log</button>
+                <div><pre id="obd_messages"></pre></div>
+            </div>
+        </div>
+
+        <!-- Footer for display copyright info, etc. -->
+        <div class="copyright">Copyright © OmniLab</div>
+    </div>
+</body>
+
+<script>
+    // invoked when page refresh.
+    openDB();
+    getUtilList();
+    getAPIList();
+    getUserDataList();
+    getManageAssetList();
+    fixShowTopDiv();
+    showHome();
+    saveAutoPilot('No');
+    savePayInvoiceCase('No');
+</script>
+
+</html>

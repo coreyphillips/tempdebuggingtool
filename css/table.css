@@ -1,0 +1,78 @@
+#tracker
+{
+	/* font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; */
+	width:100%;
+	border-collapse:collapse;
+}
+
+#tracker td, #tracker th 
+{
+	font-size:13px;
+	border:1px solid #a9aaa7;
+    padding:10px 10px 10px 10px;
+    vertical-align: middle;
+    word-wrap:break-word; 
+    word-break:break-all;
+    text-align: center;
+}
+
+#tracker th 
+{
+	/* font-size:13px; */
+	padding-top:8px;
+	padding-bottom:8px;
+	background-color:rgb(78, 81, 87);
+    color:#ffffff;
+    text-align: center;
+}
+
+#tracker tr.alt td
+{
+	color:#000000;
+	background-color:rgb(214, 236, 223);
+}
+
+tr.change_color:hover {
+    background-color:rgb(13, 126, 60);
+    cursor: pointer;
+}
+
+.col_1_width{
+    width: 20px;
+}
+
+.col_2_width{
+    width: 36px;
+}
+
+.col_3_width{
+    width: 50px;
+}
+
+.col_4_width{
+    width: 68px;
+}
+
+.col_5_width{
+    width: 110px;
+}
+
+.col_6_width{
+    width: 280px;
+}
+
+.bottom_div {
+    margin-top: 30px;
+    font-size: 15px;
+    /* position: absolute; */
+    position: fixed;
+    bottom: 30px;
+}
+
+.margin_right {
+    margin-right: 50px;
+}
+
+.bottom_margin {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete log of OBD messages</title>
+    <link rel="stylesheet" href="css/log.css">
+    <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+    <script src="sdk/pojo.js"></script>
+    <script src="sdk/obdapi.js"></script>
+    <script src="sdk/util.js"></script>
+    <script src="sdk/wallet.js"></script>
+    <script src="js/common.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="top">
+        <div>
+            <label>Complete log of OBD messages</label>
+            <label class="topDataKey">Logged In:</label>
+            <label class="topDataVal" id="log_page_logined">No One</label>
+        </div>
+    </div>
+
+    <!-- Content in middle of page -->
+    <div>
+        <pre id="log"></pre>
+    </div>
+
+    <!-- Footer for display copyright info, etc. -->
+    <div class="copyright">Copyright © OmniLab</div>
+</body>
+
+<script>
+    showLog();
+</script>
+
+</html>

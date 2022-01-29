@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Mode</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tooltip.css">
+    <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+    <script src="sdk/pojo.js"></script>
+    <script src="sdk/obdapi.js"></script>
+    <script src="js/common.js"></script>
+    <script src="sdk/btctool.js"></script>
+    <script src="sdk/wallet.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="top">
+        <div class="topLeft">OBD Debug Tool</div>
+        <div class="topRight">
+            <div class="topData">
+                <div class="topDataKey">Status:</div>
+                <div class="wrapper"><label id="status">Not Connected</label>
+                    <div class="tooltip"><label id="status_tooltip">Not Connected</label></div>
+                </div>
+                <div class="topDataKey">Logged In:</div>
+                <div class="topDataVal" id="cm_logined">No One</div>
+            </div>
+            
+            <!-- <div class="topData">
+                <div class="topDataKey">Balance:</div>
+                <div class="topDataVal" id="balance">&nbsp;0.00&nbsp;USDT&nbsp;/&nbsp;0.00&nbsp;BTC</div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Content in middle of page -->
+    <div class="main">
+        <!-- Left Side -->
+        <div id="menu" class="leftSide">
+            <!-- Dynamic create in 'common.js' -->
+        </div>
+
+        <!-- API invoked area, click left side menu to display. -->
+        <div id="name_req_div" class="custom_request_div">
+            <!-- Dynamic create in 'common.js' -->
+        </div>
+
+        <!-- OBD messages display area -->
+        <div class="obd_messages_div">
+            <button class="button button_clear" onclick="clearOBDMsg()">Clear</button>
+            <button class="button button_clear button_log" onclick="openLogPage()">Log</button>
+            <div><pre id="obd_messages"></pre></div>
+        </div>
+    </div>
+
+    <!-- Footer for display copyright info, etc. -->
+    <div class="copyright">Copyright © OmniLab</div>
+</body>
+
+<script>
+    openDB();
+    historyInCustom();
+    createConnectNodeDiv('custom');
+    createCustomModeDiv();
+</script>
+
+</html>
