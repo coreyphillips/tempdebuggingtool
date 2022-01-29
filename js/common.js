@@ -101,7 +101,7 @@ function testSignP2SH() {
  * networkType -- true: testnet  false: mainnet
  */
 async function sdkLogIn() {
-    addFunctionMessage('sdkLogIn');
+    //addFunctionMessage('sdkLogIn');
     // testSignP2SH();
     // console.info('val 1 = ' + (0.00109 + 0.000000109));
     // console.info('val 2 = ' + plus(0.00109 , 0.000000109));
