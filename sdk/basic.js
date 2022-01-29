@@ -1,10 +1,6 @@
 // basic.js
 // Basic Lightning Network Operations
 
-function getFuncName() {
-    return Function.caller.name;
-}
-
 function addFunctionMessage(msg) {
     // Add new message
     arrObdMsg.push('\n');
@@ -29,7 +25,7 @@ function addFunctionMessage(msg) {
  *  @param info
  */
 function openChannel(myUserID, nodeID, userID, info) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('openChannel');
     return new Promise((resolve, reject) => {
         obdApi.openChannel(nodeID, userID, info, function(e) {
             // console.info('SDK: -100032 openChannel = ' + JSON.stringify(e));
@@ -55,7 +51,7 @@ function openChannel(myUserID, nodeID, userID, info) {
  * @param info
  */
 function acceptChannel(myUserID, nodeID, userID, info) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('acceptChannel');
     return new Promise((resolve, reject) => {
         obdApi.acceptChannel(nodeID, userID, info, function(e) {
             // console.info('SDK: -100033 acceptChannel = ' + JSON.stringify(e));
@@ -80,7 +76,7 @@ function acceptChannel(myUserID, nodeID, userID, info) {
  * @param info
  */
 function fundingBitcoin(myUserID, info) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('fundingBitcoin');
     return new Promise((resolve, reject) => {
         obdApi.fundingBitcoin(info, async function(e) {
             // console.info('SDK: -102109 fundingBitcoin = ' + JSON.stringify(e));
@@ -122,7 +118,7 @@ function fundingBitcoin(myUserID, info) {
  * @param info
  */
 function bitcoinFundingCreated(myUserID, nodeID, userID, info) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('bitcoinFundingCreated');
     return new Promise((resolve, reject) => {
         obdApi.bitcoinFundingCreated(nodeID, userID, info, async function(e) {
             // console.info('SDK: -100340 bitcoinFundingCreated = ' + JSON.stringify(e));
@@ -166,7 +162,7 @@ function bitcoinFundingCreated(myUserID, nodeID, userID, info) {
  * @param signed_hex
  */
 function sendSignedHex100341(nodeID, userID, signed_hex) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sendSignedHex100341');
     return new Promise((resolve, reject) => {
         obdApi.sendSignedHex100341(nodeID, userID, signed_hex, function(e) {
             // console.info('SDK: -100341 sendSignedHex100341 = ' + JSON.stringify(e));
@@ -185,7 +181,7 @@ function sendSignedHex100341(nodeID, userID, signed_hex) {
  * @param info
  */
 function bitcoinFundingSigned(myUserID, nodeID, userID, info) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('bitcoinFundingSigned');
     return new Promise((resolve, reject) => {
         obdApi.bitcoinFundingSigned(nodeID, userID, info, async function(e) {
             // console.info('SDK: -100350 bitcoinFundingSigned = ' + JSON.stringify(e));
@@ -218,7 +214,7 @@ function bitcoinFundingSigned(myUserID, nodeID, userID, info) {
  * @param info
  */
 function fundingAsset(myUserID, info) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('fundingAsset');
     return new Promise((resolve, reject) => {
         obdApi.fundingAsset(info, async function(e) {
             // console.info('SDK: -102120 fundingAsset = ' + JSON.stringify(e));
@@ -246,7 +242,7 @@ function fundingAsset(myUserID, info) {
  * @param tempKey  temp_address_private_key
  */
 function assetFundingCreated(myUserID, nodeID, userID, info, tempKey) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('assetFundingCreated');
     return new Promise((resolve, reject) => {
         obdApi.assetFundingCreated(nodeID, userID, info, async function(e) {
             // console.info('SDK: -100034 - assetFundingCreated = ' + JSON.stringify(e));
@@ -275,7 +271,7 @@ function assetFundingCreated(myUserID, nodeID, userID, info, tempKey) {
  * @param signed_hex
  */
 function sendSignedHex101034(nodeID, userID, signed_hex) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sendSignedHex101034');
     return new Promise((resolve, reject) => {
         obdApi.sendSignedHex101034(nodeID, userID, signed_hex, function(e) {
             // console.info('sendSignedHex101034 = ' + JSON.stringify(e));
@@ -289,7 +285,7 @@ function sendSignedHex101034(nodeID, userID, signed_hex) {
  * @param info SignedInfo101134
  */
 function sendSignedHex101134(info) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sendSignedHex101134');
     return new Promise((resolve, reject) => {
         obdApi.sendSignedHex101134(info, function(e) {
             // console.info('sendSignedHex101134 = ' + JSON.stringify(e));
@@ -309,7 +305,7 @@ function sendSignedHex101134(info) {
  * @param info
  */
 function assetFundingSigned(myUserID, nodeID, userID, info) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('assetFundingSigned');
     return new Promise((resolve, reject) => {
         obdApi.assetFundingSigned(nodeID, userID, info, async function(e) {
             // console.info('SDK: -100035 - assetFundingSigned = ' + JSON.stringify(e));
@@ -360,7 +356,7 @@ function assetFundingSigned(myUserID, nodeID, userID, info) {
  * @param priv_key channel_address_private_key
  */
 function sendSignedHex101035(nodeID, userID, signedInfo, myUserID, tempCID, priv_key) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sendSignedHex101035');
     return new Promise((resolve, reject) => {
         obdApi.sendSignedHex101035(nodeID, userID, signedInfo, async function(e) {
             // console.info('sendSignedHex101035 = ' + JSON.stringify(e));
@@ -402,7 +398,7 @@ function sendSignedHex101035(nodeID, userID, signedInfo, myUserID, tempCID, priv
  * @param tempKey curr_temp_address_private_key
  */
 function commitmentTransactionCreated(myUserID, nodeID, userID, info, isFunder, tempKey) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('commitmentTransactionCreated');
     return new Promise((resolve, reject) => {
         obdApi.commitmentTransactionCreated(nodeID, userID, info, async function(e) {
             // console.info('SDK: -100351 commitmentTransactionCreated = ' + JSON.stringify(e));
@@ -453,7 +449,7 @@ function commitmentTransactionCreated(myUserID, nodeID, userID, info, isFunder, 
  * @param signedInfo
  */
 function sendSignedHex100360(nodeID, userID, signedInfo) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sendSignedHex100360');
     return new Promise((resolve, reject) => {
         obdApi.sendSignedHex100360(nodeID, userID, signedInfo, function(e) {
             // console.info('sendSignedHex100360 = ' + JSON.stringify(e));
@@ -474,7 +470,7 @@ function sendSignedHex100360(nodeID, userID, signedInfo) {
  * @param tempKey curr_temp_address_private_key
  */
 function commitmentTransactionAccepted(myUserID, nodeID, userID, info, isFunder, tempKey) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('commitmentTransactionAccepted');
     return new Promise((resolve, reject) => {
         obdApi.commitmentTransactionAccepted(nodeID, userID, info, async function(e) {
             // console.info('SDK: -100352 commitmentTransactionAccepted = ' + JSON.stringify(e));
@@ -527,7 +523,7 @@ function commitmentTransactionAccepted(myUserID, nodeID, userID, info, isFunder,
  * @param signedInfo
  */
 function sendSignedHex100361(nodeID, userID, signedInfo) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sendSignedHex100361');
     return new Promise((resolve, reject) => {
         obdApi.sendSignedHex100361(nodeID, userID, signedInfo, function(e) {
             // console.info('sendSignedHex100361 = ' + JSON.stringify(e));
@@ -545,7 +541,7 @@ function sendSignedHex100361(nodeID, userID, signedInfo) {
  * @param signedInfo
  */
 function sendSignedHex100362(myUserID, nodeID, userID, signedInfo) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sendSignedHex100362');
     return new Promise((resolve, reject) => {
         obdApi.sendSignedHex100362(nodeID, userID, signedInfo, async function(e) {
             // console.info('sendSignedHex100362 = ' + JSON.stringify(e));
@@ -583,7 +579,7 @@ function sendSignedHex100362(myUserID, nodeID, userID, signedInfo) {
  * @param signedInfo
  */
 function sendSignedHex100363(nodeID, userID, signedInfo) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sendSignedHex100363');
     return new Promise((resolve, reject) => {
         obdApi.sendSignedHex100363(nodeID, userID, signedInfo, function(e) {
             // console.info('sendSignedHex100363 = ' + JSON.stringify(e));
@@ -597,7 +593,7 @@ function sendSignedHex100363(nodeID, userID, signedInfo) {
  * @param signedInfo
  */
 function sendSignedHex100364(signedInfo) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sendSignedHex100364');
     return new Promise((resolve, reject) => {
         obdApi.sendSignedHex100364(signedInfo, function(e) {
             // console.info('sendSignedHex100364 = ' + JSON.stringify(e));
@@ -616,7 +612,7 @@ function sendSignedHex100364(signedInfo) {
  * @param isFunder
  */
 function closeChannel(myUserID, nodeID, userID, channel_id, isFunder) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('closeChannel');
     return new Promise((resolve, reject) => {
         obdApi.closeChannel(nodeID, userID, channel_id, function(e) {
             // console.info('SDK: -100038 closeChannel = ' + JSON.stringify(e));
@@ -637,7 +633,7 @@ function closeChannel(myUserID, nodeID, userID, channel_id, isFunder) {
  * @param isFunder
  */
 function closeChannelSigned(myUserID, nodeID, userID, info, isFunder) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('closeChannelSigned');
     return new Promise((resolve, reject) => {
         obdApi.closeChannelSigned(nodeID, userID, info, function(e) {
             // console.info('SDK: -100039 closeChannelSigned = ' + JSON.stringify(e));

@@ -101,7 +101,7 @@ function testSignP2SH() {
  * networkType -- true: testnet  false: mainnet
  */
 async function sdkLogIn() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkLogIn');
     // testSignP2SH();
     // console.info('val 1 = ' + (0.00109 + 0.000000109));
     // console.info('val 2 = ' + plus(0.00109 , 0.000000109));
@@ -171,7 +171,7 @@ function displaySentMessage(msgSend) {
 
 // -102003 sdkConnectP2PPeer API at local.
 function sdkConnectP2PPeer(msgType) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkConnectP2PPeer');
     let info                 = new P2PPeer();
     info.remote_node_address = $("#remote_node_address").val();
 
@@ -184,7 +184,7 @@ function sdkConnectP2PPeer(msgType) {
 
 // -100032 openChannel API at local.
 async function sdkOpenChannel() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkOpenChannel');
     let nodeID  = $("#recipient_node_peer_id").val();
     let userID  = $("#recipient_user_peer_id").val();
 
@@ -200,7 +200,7 @@ async function sdkOpenChannel() {
 
 // -100033 accept Channel API at local.
 async function sdkAcceptChannel() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkAcceptChannel');
     let nodeID  = $("#recipient_node_peer_id").val();
     let userID  = $("#recipient_user_peer_id").val();
 
@@ -374,7 +374,7 @@ async function sdkAcceptSwap() {
  * -100038 closeChannel API at local.
  */
 async function sdkCloseChannel() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkCloseChannel');
     let nodeID     = $("#recipient_node_peer_id").val();
     let userID     = $("#recipient_user_peer_id").val();
     let channel_id = $("#channel_id").val();
@@ -392,7 +392,7 @@ async function sdkCloseChannel() {
  * -100039 closeChannelSigned API at local.
  */
 async function sdkCloseChannelSigned() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkCloseChannelSigned');
     let nodeID = $("#recipient_node_peer_id").val();
     let userID = $("#recipient_user_peer_id").val();
 
@@ -415,7 +415,7 @@ async function sdkCloseChannelSigned() {
  * getAllBalancesForAddress API at local.
  */
 function sdkGetAllBalancesForAddress() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkGetAllBalancesForAddress');
     let address = $("#address").val();
     getAllBalancesForAddress(address);
 }
@@ -424,7 +424,7 @@ function sdkGetAllBalancesForAddress() {
  * -102113 issueFixedAmount API at local.
  */
 function sdkIssueFixedAmount() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkIssueFixedAmount');
     let info            = new IssueFixedAmountInfo();
     info.from_address   = $("#from_address").val();
     info.name           = $("#name").val();
@@ -441,7 +441,7 @@ function sdkIssueFixedAmount() {
  * -102114 issueManagedAmout API at local.
  */
 function sdkIssueManagedAmout() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkIssueManagedAmout');
     let info            = new IssueManagedAmoutInfo();
     info.from_address   = $("#from_address").val();
     info.name           = $("#name").val();
@@ -579,7 +579,7 @@ function sdkGetAllBreachRemedyTransactions() {
 
 // -100340 BTC Funding Created API at local.
 async function sdkBitcoinFundingCreated() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkBitcoinFundingCreated');
     let nodeID = $("#recipient_node_peer_id").val();
     let userID = $("#recipient_user_peer_id").val();
 
@@ -597,7 +597,7 @@ async function sdkBitcoinFundingCreated() {
 
 // -100350 BTC Funding Signed API at local.
 async function sdkBitcoinFundingSigned() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkBitcoinFundingSigned');
     let nodeID = $("#recipient_node_peer_id").val();
     let userID = $("#recipient_user_peer_id").val();
 
@@ -614,7 +614,7 @@ async function sdkBitcoinFundingSigned() {
 
 // -100034 Omni Asset Funding Created API at local.
 async function sdkAssetFundingCreated() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkAssetFundingCreated');
     let nodeID  = $("#recipient_node_peer_id").val();
     let userID  = $("#recipient_user_peer_id").val();
     let tempKey = $("#temp_address_private_key").val();
@@ -633,7 +633,7 @@ async function sdkAssetFundingCreated() {
 
 // -100035 Omni Asset Funding Signed API at local.
 async function sdkAssetFundingSigned() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkAssetFundingSigned');
     let nodeID = $("#recipient_node_peer_id").val();
     let userID = $("#recipient_user_peer_id").val();
 
@@ -654,7 +654,7 @@ async function sdkAssetFundingSigned() {
 
 // -102109 funding BTC API at local.
 async function sdkFundingBitcoin() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkFundingBitcoin');
     let info          = new BtcFundingInfo();
     info.from_address = $("#from_address").val();
     info.to_address   = $("#to_address").val();
@@ -668,7 +668,7 @@ async function sdkFundingBitcoin() {
 
 //  -102120 funding Omni Asset API at local.
 async function sdkFundingAsset() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkFundingAsset');
     let info          = new OmniFundingAssetInfo();
     info.from_address = $("#from_address").val();
     info.to_address   = $("#to_address").val();
@@ -847,7 +847,7 @@ async function sdkHTLCFindPath() {
 
 // -100351 Commitment Transaction Created API at local.
 async function sdkCommitmentTransactionCreated() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkCommitmentTransactionCreated');
     let myUserID = $("#logined").text();
     let nodeID   = $("#recipient_node_peer_id").val();
     let userID   = $("#recipient_user_peer_id").val();
@@ -872,7 +872,7 @@ async function sdkCommitmentTransactionCreated() {
 
 // -100352 Revoke and Acknowledge Commitment Transaction API at local.
 async function sdkCommitmentTransactionAccepted() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sdkCommitmentTransactionAccepted');
     let myUserID = $("#logined").text();
     let nodeID   = $("#recipient_node_peer_id").val();
     let userID   = $("#recipient_user_peer_id").val();
@@ -1218,10 +1218,6 @@ function displayOBDMessages(msg) {
     }
     
     $("#obd_messages").html(showMsg);
-}
-
-function getFuncName() {
-    return Function.caller.name;
 }
 
 function addFunctionMessage(msg) {
@@ -4465,7 +4461,7 @@ function displaySentMessage102116(info) {
 
 //  -102121 Invoke omni_send rpc command of omni core
 function sendAsset() {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('sendAsset');
 
     let info           = new OmniSendAssetInfo();
     info.from_address  = 'n4j37pAMNsjkTs6roKof3TGNvmPh16fvpS';
@@ -4496,7 +4492,7 @@ function importToOmniCore() {
  * @param netType true: testnet  false: mainnet
  */
 async function register110032(e, netType) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('register110032');
     
     let resp = await listening110032(e, netType);
     if (resp != true) {
@@ -4513,7 +4509,7 @@ async function register110032(e, netType) {
  * @param e
  */
 async function register110340(e) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('register110340');
     
     let resp = await listening110340(e);
     if (resp != true) {
@@ -4529,7 +4525,7 @@ async function register110340(e) {
  * @param e
  */
 async function register110034(e) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('register110034');
     
     let resp = await listening110034(e);
     if (resp != true) {
@@ -4549,7 +4545,7 @@ async function register110034(e) {
  * @param e
  */
 async function register110035(e) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage(register110035);
     let resp = await listening110035(e);
     displaySentMessage101134(resp);
     listening110035ForGUITool(e);
@@ -4561,7 +4557,7 @@ async function register110035(e) {
  * @param netType true: testnet  false: mainnet
  */
 async function register110351(e, netType) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage(register110351);
     
     disableInvokeAPI();
     tipsOnTop('', kProcessing);
@@ -4581,7 +4577,7 @@ async function register110351(e, netType) {
  * @param e
  */
 async function register110352(e) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('register110352');
     
     let resp   = await listening110352(e);
     let nodeID = resp.nodeID;
@@ -4596,7 +4592,7 @@ async function register110352(e) {
  * @param e
  */
 async function register110353(e) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('register110353');
     
     let resp = await listening110353(e);
     displaySentMessage100364(resp);
@@ -4610,7 +4606,7 @@ async function register110353(e) {
  * @param netType true: testnet  false: mainnet
  */
 async function register110040(e, netType) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('register110040');
     
     disableInvokeAPI();
     tipsOnTop('', kProcessing);
@@ -4630,7 +4626,7 @@ async function register110040(e, netType) {
  * @param e
  */
 async function register110041(e) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('register110041');
     
     let resp = await listening110041(e);
     displaySentMessage100102(resp.info102);
@@ -4644,7 +4640,7 @@ async function register110041(e) {
  * @param netType true: testnet  false: mainnet
  */
 async function register110042(e, netType) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('register110042');
     
     let resp   = await listening110042(e, netType);
     let nodeID = resp.nodeID;
@@ -4673,7 +4669,7 @@ async function register110042(e, netType) {
  * @param e
  */
 async function register110045(e) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('register110045');
     
     let resp  = await listening110045(e);
     if (resp != true) {
@@ -4692,7 +4688,7 @@ async function register110045(e) {
  * @param netType true: testnet  false: mainnet
  */
 async function register110049(e, netType) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('register110049');
     
     let resp   = await listening110049(e, netType);
     let nodeID = resp.nodeID;
@@ -4707,7 +4703,7 @@ async function register110049(e, netType) {
  * @param e
  */
 async function register110050(e) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('register110050');
     
     let resp = await listening110050(e);
     displaySentMessage100112(resp.info112);
@@ -4729,7 +4725,7 @@ async function register110050(e) {
  * @param e
  */
 async function register110051(e) {
-    addFunctionMessage(getFuncName());
+    addFunctionMessage('register110051');
     
     let resp = await listening110051(e);
     displaySentMessage100114(resp.info114);
