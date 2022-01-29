@@ -1,8 +1,25 @@
 // basic.js
 // Basic Lightning Network Operations
 
+function getFuncName() {
+    return Function.caller.name;
+}
 
-import { addFunctionMessage, getFuncName } from "../js/common";
+function addFunctionMessage(msg) {
+    // Add new message
+    arrObdMsg.push('\n');
+    arrObdMsg.push('------------------------------------');
+    arrObdMsg.push('Function Called -  ' + msg);
+    arrObdMsg.push('------------------------------------');
+    
+    // Show message in message box at right side.
+    let showMsg = '';
+    for (let i = arrObdMsg.length - 1; i >= 0; i--) {
+        showMsg += arrObdMsg[i] + '\n\n';
+    }
+    
+    $("#obd_messages").html(showMsg);
+}
 
 /**
  *  Type -100032 Protocol is used to request to create a channel with someone else(Bob).

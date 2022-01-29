@@ -1220,11 +1220,11 @@ function displayOBDMessages(msg) {
     $("#obd_messages").html(showMsg);
 }
 
-export function getFuncName() {
+function getFuncName() {
     return Function.caller.name;
 }
 
-export function addFunctionMessage(msg) {
+function addFunctionMessage(msg) {
     // Add new message
     arrObdMsg.push('\n');
     arrObdMsg.push('------------------------------------');
